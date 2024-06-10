@@ -21,10 +21,13 @@ spec:
       containers:
         - name: second-node
           image: tangthiendat/kub-first-app:2
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5
           resources:
             limits:
               cpu: "1"
               memory: "512Mi"
-            requests:
-              cpu: "0.5"
-              memory: "256Mi"
