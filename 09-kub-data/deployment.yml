@@ -14,8 +14,14 @@ spec:
     spec:
       containers:
         - name: story
-          image: tangthiendat/kub-data-demo
+          image: tangthiendat/kub-data-demo:1
+          volumeMounts:
+            - name: story-volume
+              mountPath: /app/story
           resources:
             limits:
               cpu: "1"
               memory: "512Mi"
+      volumes:
+        - name: story-volume
+          emptyDir: {}
