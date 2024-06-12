@@ -14,7 +14,13 @@ spec:
     spec:
       containers:
         - name: users
-          image: tangthiendat/kub-network
+          image: tangthiendat/kub-demo-users:latest
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "1"
+        - name: auth
+          image: tangthiendat/kub-demo-auth:latest
           resources:
             limits:
               memory: "512Mi"
