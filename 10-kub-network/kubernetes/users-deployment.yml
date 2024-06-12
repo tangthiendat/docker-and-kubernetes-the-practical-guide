@@ -17,7 +17,7 @@ spec:
           image: tangthiendat/kub-demo-users:latest
           env:
             - name: AUTH_ADDRESS
-              value: localhost
+              value: "10.98.122.94"
           resources:
             limits:
               memory: "512Mi"
