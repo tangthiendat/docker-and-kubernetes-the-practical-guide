@@ -4,13 +4,11 @@ import "./App.css";
 import TaskList from "./components/TaskList";
 import NewTask from "./components/NewTask";
 
-const API_URL = "http://192.168.49.2:30969";
-
 function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = useCallback(function () {
-    fetch(`${API_URL}/tasks`, {
+    fetch(`/api/tasks`, {
       headers: {
         Authorization: "Bearer abc",
       },
@@ -31,7 +29,7 @@ function App() {
   );
 
   function addTaskHandler(task) {
-    fetch(`${API_URL}/tasks`, {
+    fetch(`/api/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
