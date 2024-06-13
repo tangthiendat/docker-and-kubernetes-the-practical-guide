@@ -1,24 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: users-deployment
+  name: tasks-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: users
+      app: tasks
   template:
     metadata:
       labels:
-        app: users
+        app: tasks
     spec:
       containers:
-        - name: users
-          image: tangthiendat/kub-demo-users:latest
+        - name: tasks
+          image: tangthiendat/kub-demo-tasks:latest
           env:
             - name: AUTH_ADDRESS
-              # value: "10.98.122.94"
               value: "auth-service.default"
+            - name: TASKS_FOLDER
+              value: "tasks"
           resources:
             limits:
               memory: "512Mi"
